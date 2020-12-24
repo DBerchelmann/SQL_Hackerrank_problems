@@ -82,3 +82,26 @@ SELECT DISTINCT city
 FROM station
 WHERE right(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') OR
 left(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+# Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+# I chose to add an additional practice problem with the vowels because I like this syntax for arranging data
+
+# Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. 
+# Your result cannot contain duplicates.
+
+SELECT DISTINCT city
+FROM station
+WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') AND 
+      RIGHT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') ;
+
+
+# Below is another solution but Im not familiar with all of the syntax yet. Saving to research later
+
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE CITY REGEXP '^[^AEIUO].*[^AEIOU]$'
