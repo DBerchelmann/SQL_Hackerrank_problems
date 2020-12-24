@@ -105,3 +105,29 @@ WHERE LEFT(city, 1) NOT IN ('a', 'e', 'i', 'o', 'u') AND
 SELECT DISTINCT CITY 
 FROM STATION 
 WHERE CITY REGEXP '^[^AEIUO].*[^AEIOU]$'
+
+# Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. 
+# If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+SELECT Name 
+FROM STUDENTS 
+WHERE Marks > 75 
+ORDER BY RIGHT(Name, 3), ID;
+
+# We define an employees total earnings to be their monthly salary x months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. 
+# Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings.
+# Then print these values as  space-separated integers.
+
+SELECT salary * months AS total_earnings, COUNT(*)
+FROM Employee
+GROUP BY total_earnings
+ORDER BY total_earnings DESC
+LIMIT 1;
+
+# Query the following two values from the STATION table:
+
+# The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+# The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+
+SELECT ROUND(SUM(LAT_N), 2) AS lat, ROUND(SUM(LONG_W), 2) AS lon
+FROM station;
