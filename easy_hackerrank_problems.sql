@@ -131,3 +131,9 @@ LIMIT 1;
 
 SELECT ROUND(SUM(LAT_N), 2) AS lat, ROUND(SUM(LONG_W), 2) AS lon
 FROM station;
+
+# Query the average population for all cities in CITY, rounded down to the nearest integer.
+# Included this because it shows how to round down using FLOOR
+
+SELECT FLOOR(AVG(POPULATION))
+FROM CITY;
